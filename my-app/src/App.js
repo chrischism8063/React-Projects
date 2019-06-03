@@ -1,0 +1,38 @@
+import React , { Component } from 'react'
+import Table from './Table'
+
+class App extends Component{
+    render(){
+        // <div className="container">
+        //     <Table />
+        // </div>
+
+        //Create an array of objects using JSON
+        const characters = [
+            {
+                name: 'Charlie',
+                job: 'Janitor',
+            },
+            {
+                name: 'Mac',
+                job: 'Bouncer',
+            },
+            {
+                name: 'Dee',
+                job: 'Aspiring Actress',
+            },
+            {
+                name: 'Dennis',
+                job: 'Bartender',
+            },
+        ]
+
+        return(
+            <div className="container">
+                <Table characterData={characters} />
+            </div>
+        )
+    }
+}
+
+export default App
