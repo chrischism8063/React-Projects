@@ -1,38 +1,39 @@
 import React , { Component } from 'react'
-import Table from './Table'
+import RedditPost from './RedditPost'
+import redditPosts from './data/redditPosts'
+
+//This can be written here or inline into the App class, but with { around it }
+// const redditPostsJsx = redditPosts.map(redditPosts => {
+//     return <RedditPost 
+//         key={ redditPosts.title }
+//         title={ redditPosts.title }
+//         comments={ redditPosts.comments }
+//         submitted={ redditPosts.submitted } />
+// })
+
+console.log(redditPosts);
 
 class App extends Component{
     render(){
-        // <div className="container">
-        //     <Table />
-        // </div>
-
-        //Create an array of objects using JSON
-        const characters = [
-            {
-                name: 'Charlie',
-                job: 'Janitor',
-            },
-            {
-                name: 'Mac',
-                job: 'Bouncer',
-            },
-            {
-                name: 'Dee',
-                job: 'Aspiring Actress',
-            },
-            {
-                name: 'Dennis',
-                job: 'Bartender',
-            },
-        ]
-
-        return(
-            <div className="container">
-                <Table characterData={characters} />
+        return ( 
+            <div className="App">
+                {
+                    //Maps redditPosts using itself to return an object which MUST have a key, then everything else instatiated.
+                    redditPosts.map(redditPost => {
+                    return <RedditPost 
+                        key={ redditPost.title }
+                        title={ redditPost.title }
+                        comments={ redditPost.comments }
+                        submitted={ redditPost.submitted } />
+                    })
+                }
             </div>
-        )
+        );
     }
 }
 
+
 export default App
+
+
+//ISSUE, not rendering all from redditPosts.js
