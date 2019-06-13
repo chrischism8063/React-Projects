@@ -2,6 +2,9 @@ import React , { Component } from 'react'
 import RedditPost from './RedditPost'
 import redditPosts from './data/redditPosts'
 
+firebase.database().ref('posts').once('value') 
+    .then((snapshot) => console.log(snapshot.val))
+
 //This can be written here or inline into the App class, but with { around it }
 // const redditPostsJsx = redditPosts.map(redditPosts => {
 //     return <RedditPost 
