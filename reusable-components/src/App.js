@@ -1,28 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import MainBody from './MainBody';
+import { BrowserRouter } from 'react-router-dom';
+import NavBar from '../../marioplan/src/NavBar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <MainBody />
-    </div>
-  );
+class App extends Component{
+  render(){
+    return(
+        <BrowserRouter>
+          <div className="App">
+            <NavBar />
+          </div>
+        </BrowserRouter>
+    )
+  }
 }
 
 export default App;
