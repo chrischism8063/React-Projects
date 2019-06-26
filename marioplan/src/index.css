@@ -11,6 +11,7 @@ body {
   background-size: 100%;
   background-position: bottom;
   background-color: #95e8f3;
+  min-height: 100%;
 }
 
 form{
@@ -31,5 +32,3 @@ textarea.materialize-textarea:focus:not([readonly]){
   box-shadow: none;
 }
 
-/* TODO 
-stopped on video #10 */
