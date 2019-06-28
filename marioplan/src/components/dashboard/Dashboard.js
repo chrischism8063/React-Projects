@@ -4,6 +4,9 @@ import ProjectList from '../projects/ProjectList';
 // Connect redux with store
 import { connect } from 'react-redux';
 
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+
 class Dashboard extends Component{
     render(){
 console.log(this.props);
@@ -13,7 +16,7 @@ console.log(this.props);
                 <div className="row">
                     {/* Project List */}
                     <div className="col s12 m6"></div>
-                    <ProjectList projects={ projects } />
+                        <ProjectList projects={ projects } />
                     {/* Notifications at right */}
                     <div className="col s12 m5 offset-m1"></div>
                         <Notifications />
@@ -25,9 +28,16 @@ console.log(this.props);
 
 // sends project data to props
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        projects: state.project.projects
+        projects: state.firestore.ordered.projects
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+    connect(mapStateToProps),
+    // syncs the data with the store
+    firestoreConnect([
+        { collection: 'projects' }
+    ])
+)(Dashboard);

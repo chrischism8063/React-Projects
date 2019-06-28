@@ -14,12 +14,10 @@ const projectReducer = (state = initState, action) => {
             return state;
         case 'CREATE_PROJECT_ERROR':
             console.log('create project error', action.err);
+            return state;
         default: 
             return state;
     }
 }
 
 export default projectReducer;
-
-// TODO: verify video 18 which implements code to add projects into firebase 7:50 minutes
-//Unable to verify data added to firebase from site. Troubleshoot
