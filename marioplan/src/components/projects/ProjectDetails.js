@@ -46,5 +46,3 @@ export default compose(
         { collection: 'projects' }
     ])
 )(ProjectDetails);
-
-// TODO: start at video 21
