@@ -47,9 +47,12 @@ export default class BarChart extends Component {
       .filter((key) => {
         return key !== "Meta Data";
       })
-      .map((records) => localData[records]);
+      // TODO: need to convert the data into an array not a JSON object...
+      .map((key) => {
+        return { data: localData[key], name: key };
+      });
 
-    console.log(localSeriesData);
+    console.log("localSeriesData", localSeriesData);
 
     let mapPercent = {
       chart: {
